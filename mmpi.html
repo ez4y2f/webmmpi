@@ -24,13 +24,25 @@
             position: absolute;
             top: 25vh;
             left: 25vw;
+            z-index: 2;
         }
         .custom-font {
             font-family: "Source Han Sans", sans-serif;
         }
         .body-bg {
             background-size: cover;
-            background: #d4d2d2 url("https://y2f.xyz/wp-json/sakura/v1/image/cover") no-repeat;
+            background: #d4d2d2 url("https://y2f.xyz/wp-json/sakura/v1/image/cover") no-repeat center;
+        }
+        .body-bg:after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: inherit;
+            filter: blur(5px);
+            z-index: 0;
         }
     </style>
     <script type="text/javascript">
@@ -66,7 +78,7 @@
         </div>
         <button id="acceptUla" onclick="onAcceptBtnClick()">我已充分阅读并知晓，继续测验</button>
     </div>
-    <div id="div-tb" style="display: none; width: 50%; height: auto; text-align: center; position: absolute; top: 25vh; left: 25vw;">
+    <div id="div-tb" style="display: none; width: 50%; height: auto; text-align: center; position: absolute; top: 25vh; left: 25vw; z-index: 2">
         <label id = "lb-tbPrompt" for="ans-tb">请输入年龄</label>
         <input type="number" style="font-size : 1em" id="ans-tb">
         <button id="submit-tb" onclick="onSubmitBtnClick()">提交</button>
