@@ -997,7 +997,7 @@ function endTest() {
     let date = new Date();
     const testDate = date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString() + "-" + date.getDate().toString();
 
-    jsonData = JSON.stringify({"Name" : tName, "Age" : age, "Date" : testDate, "Duration" : testDuration, "OriginalScore": orgScore, "ModifiedScore": proScore});
+    jsonData = JSON.stringify({"Name" : tName, "Age" : age, "Date" : testDate, "Duration" : testDuration, "OriginalScore": orgScore, "ModifiedScore": proScore, "Answers": answers});
     textData = "MMPI测试 " + testDate + "\n姓名:" + tName + "\n年龄:" + age.toString() + "\n测试用时:" + testDuration.toString() + "ms";
     textData += "\n原始分\n";
     for(let k in orgScore) {
@@ -1006,6 +1006,11 @@ function endTest() {
     textData += "标准分\n";
     for(let k in proScore) {
         textData += k + ":" + proScore[k].toString() + "\n";
+    }
+    textData += "答案\n";
+    for(i = 0; i < answers.length; i++) {
+        textData += questions[i].toString() + ":" + answers[i].toString() + "\n";
+
     }
     textData += "WebMMPI生成: https://y2f.xyz/mmpi";
 
